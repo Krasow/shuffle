@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+  {% block title %} SHUFFLE | BANTER {% endblock %}
+
+{% block content %}
+
+<style type="text/css">
+
+  .list-group-item{
+    max-width: 700px;
+    margin-bottom: 20px;
+    border: 1px lightgrey solid;
+
+  }
+
+  .list-group-item:hover{
+    border: 2px #55ACEE solid;
+  }
+  .list-group-item a{
+    color: #333;
+    text-decoration: none;
+  }
+  .list-group-item a:hover{
+    color: #55ACEE;
+  }
+  .list-group{
+    padding-top: 10px !important;
+    position: relative;
+    max-width: 700px;
+  }
+
+</style>
+
+
+<div class="content">
+  <div class="text-center banter-create">
+    <a class="btn btn-link" href="{% url 'banter:create' %}"><i class="fa fa-upload" aria-hidden="true"></i>Create Banter</a>
+    {% if user.is_authenticated %}
+    <form method="POST">
+      {% csrf_token %}
+      <button class="btn-group btn-lg btn-primary" name="createMemeBanter" type="submit">Shuffle Banter</button>
+    </form>
+    {% endif %}
+  </div>
+{% if post %}
+    <div class="list-group container">
+    {% for p in post %}
+      <li class="list-group-item">
+        <a href="{% url 'banter:detail' p.slug %}">
+          <div class="my-3 header text-muted">
+            Updated on {{p.date_up}} by {{p.author}}
+          </div>
+          <div>
+              <h1 class="my-2">{{p.title}}</h1>
+            {% if p.image %}
+              <img class="img-top feedimgdetail" src="{{p.image.url}}">
+            {% elif p.imagelink %}
+              <img class="img-top feedimgdetail" src="{{p.imagelink}}">
+            {% endif %}
+              <p class="my-3 space-para">{{p.body|truncatechars:180|safe}}</p>
+          </div>
+        </a>
+      </li>
+    {% endfor %}
+    </div>
+{% endif %}
+</div>
+{% endblock %}

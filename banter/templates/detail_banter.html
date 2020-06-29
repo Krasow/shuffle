@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{%block title%} BANTER | {{post.title}}{% endblock %}
+
+{%block content%}
+
+<div class="container content">
+  <div class="row">
+      <div class="card m-auto">
+        {% if post.image %}
+          <img class="card-img-top postimgdetail container" src="{{post.image.url}}">
+        {% elif post.imagelink %}
+          <img class="card-img-top postimgdetail container" src="{{post.imagelink}}">
+        {% endif %}
+        <div class="card-body my-2">
+          <h3 class="card-title">{{post.title}}</h3>
+          <p class="card-text">{{post.body|safe}}</p>
+      </div>
+      <div class="card-footer text-muted">
+        {% if post.author == user %}
+          <br><a href="{%url 'banter:update' post.slug%}">Edit </a>
+          &emsp;<a href="{%url 'banter:delete' post.slug%}">Delete </a> &emsp;
+        {% endif %}
+        <div class="header">
+          Updated on {{post.date_up}} by {{post.author}}
+          <a href="{% url 'banter:share' post.slug %}"><i class="fa fa-envelope"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

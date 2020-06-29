@@ -1,0 +1,130 @@
+/* overall page css  */
+body {
+  height: 100%;
+  min-height: 100vh;
+}
+body {
+  display: flex;
+  flex-direction: column;
+}
+.content {
+  flex: 1 0 auto;
+}
+
+.footer {
+  flex-shrink: 0;
+}
+
+/* end page */
+
+/* navbar css */
+.topnav {
+  overflow: hidden;
+  background-color: #b963a3;
+  z-index: 100;
+  height: 50px;
+}
+
+.topnav a{
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+.link {
+  float: left;
+}
+
+.social {
+  float: right;
+}
+
+.active {
+  background-color: #a0c654;
+  color: white;
+}
+
+.topnav .icon {
+  display: none;
+}
+
+.topnav a:hover {
+  background-color: #a0c654;
+  color: white;
+  height: 50px;
+}
+
+
+@media screen and (max-width: 875px) {
+  /* .topnav a:not(:first-child) {
+    display: none;
+  } */
+  .topnav a.icon {
+    float: right;
+    display: block;
+  }
+}
+
+@media screen and (max-width: 875px) {
+  .topnav.responsive {position: relative;}
+  .topnav.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+}
+/* end navbar css */
+
+/* banter css */
+.feedimgdetail{
+  max-width: 100%;
+}
+
+.postimgdetail{
+  height: 580px;
+  max-width: 800px !important;
+}
+.space-para{
+  line-height: 18px;
+}
+
+.btn-link{
+  color: #a0c654 !important;
+}
+
+.banter-create a{
+  font-size: 34px;
+}
+/* end banter */
+
+/* change button primary for theme */
+.btn-primary{
+  background-color: #a0c654 !important;
+  border-color: #a0c654 !important;
+
+}
+
+/* index */
+.memeimg{
+  max-height: 1200px;
+}
+
+.longfrontimage1 {
+  height: 400px;
+  width: 100%;
+  background-image: linear-gradient(to right, rgba(245, 246, 252, 0.35), rgba(104, 40, 96, 0.76)), url('https://source.unsplash.com/random/1920x400');
+  background-size: cover;
+  text-align: center;
+  }
+.longfrontimage1 h1 {
+  font-size: 100px;
+  color: white;
+  padding-top: 250px;
+}

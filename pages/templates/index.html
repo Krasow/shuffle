@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block title %}SHUFFLE{% endblock %}
+
+{% block content %}
+
+<div class="content">
+  <div class="longfrontimage1">
+      <h1>Welcome to SHUFFLE</h1>
+  </div>
+  <div class="text-center container">
+      <div class="row">
+        <div class="col-xs-4 previous">
+          <form method="POST">
+            {% csrf_token %}
+            <button class="btn-group btn-lg btn-primary" name="getJoke" type="submit">Shuffle Joke</button>
+          </form>
+        </div>
+
+        <div class="col-xs-4 next">
+          <form method="POST">
+            {% csrf_token %}
+            <button class="btn-group btn-lg btn-primary" name="getMeme" type="submit">Shuffle Meme</button>
+          </form>
+        </div>
+      </div>
+      {%if joke%}
+      <h2>{{joke}}</h2>
+      {% endif %}
+      {%if meme%}
+      <img class="memeimg" src="{{meme}}">
+      {% endif %}
+  </div>
+</div>
+
+
+{% endblock %}

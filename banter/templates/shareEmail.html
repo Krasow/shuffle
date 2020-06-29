@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}BANTER | SHARE{% endblock %}
+{% block content %}
+<div class="content container">
+{% if user.is_authenticated %}
+<form method="POST">{% csrf_token %}
+	<h1 class="mb-3 font-weight-normal">Send Post to Yourself</h1>
+	<button class="btn btn-lg btn-primary" name="sendemail" type="submit">Send Email</button>
+</form>
+
+<br><hr>
+{% endif %}
+<form method="POST">{% csrf_token %}
+	<h1 class="mb-3 font-weight-normal">Share Post to a friend</h1>
+  <input name="email" class="form-control" placeholder="Email address" type="email" id="id_email" required="true">
+  <br>
+	<button class="btn btn-lg btn-primary" name="sendother" type="submit">Send Email</button>
+</form>
+
+</div>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<title> Login Chat </title>
+
+  <form method="post" class="content container form-group">
+      <h1>Login Here</h1>
+      {% csrf_token %}
+      <h4>{{ form.as_p }}</h4>
+      <h5>Don't have an account? Create one <a href="{%url 'register'%}">here</a></h5>
+      <button class="btn btn-lg btn-primary" type="submit" >Login</button>
+  </form>
+
+{% endblock %}

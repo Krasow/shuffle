@@ -1,0 +1,27 @@
+<div class="topnav" id="myTopnav">
+  <a class="link" href="{% url 'home' %}">HOME</a>
+  <a class="link" href="{% url 'banter:banter' %}">BANTER</a>
+
+
+  <a class="btn btn-paper-plane social" href="mailto:dkrasow@g.clemson.edu">
+    <i class="fa fa-paper-plane"></i>
+  </a>
+
+  <a class="btn btn-twitter social" href="https://twitter.com/davidkrasowska">
+    <i class="fa fa-twitter"></i>
+  </a>
+
+  <a class="btn btn-instagram social" href="https://www.instagram.com/davidkrasowska/">
+    <i class="fa fa-instagram"></i>
+  </a>
+
+  <a class="btn btn-github social" href="https://github.com/Krasow">
+    <i class="fa fa-github"></i>
+  </a>
+
+{% if user.is_authenticated %}
+  <a class="social" href="{% url 'logout' %}">Welcome {{request.user.username}} | LOGOUT</a>
+{% else %}
+  <a class="social" href="{% url 'login' %}">LOGIN</a>
+{% endif %}
+</div>
